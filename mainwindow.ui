@@ -106,6 +106,24 @@ color: rgb(5, 116, 186)
        <string>Click to Continue.. </string>
       </property>
      </widget>
+     <widget class="QPlainTextEdit" name="testArea">
+      <property name="geometry">
+       <rect>
+        <x>13</x>
+        <y>409</y>
+        <width>771</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="plainText">
+       <string>Test your data here:
+</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="location">
      <property name="styleSheet">
