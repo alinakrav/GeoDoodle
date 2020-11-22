@@ -20,11 +20,11 @@ private slots:
 
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
-    void on_cartoon1_clicked();
-    void on_cartoon2_clicked();
-    void on_cartoon3_clicked();
-    void on_cartoon4_clicked();
-    void on_cartoon5_clicked();
+    void on_pentagon_clicked();
+    void on_triangle_clicked();
+    void on_square_clicked();
+    void on_hexagon_clicked();
+    void on_rhombus_clicked();
 
     void on_stackedWidget_currentChanged(int arg1);
 
