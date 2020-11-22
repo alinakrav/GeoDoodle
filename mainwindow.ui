@@ -272,7 +272,7 @@ color: rgb(5, 116, 186)
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="pentagon">
+     <widget class="QPushButton" name="cartoon1">
       <property name="geometry">
        <rect>
         <x>60</x>
@@ -292,13 +292,13 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string>Pentagon</string>
+       <string>Cartoon1</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="triangle">
+     <widget class="QPushButton" name="cartoon2">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>410</x>
         <y>330</y>
         <width>181</width>
         <height>71</height>
@@ -315,13 +315,13 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string>Rhombus</string>
+       <string>Cartoon5</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="square">
+     <widget class="QPushButton" name="cartoon3">
       <property name="geometry">
        <rect>
-        <x>200</x>
+        <x>170</x>
         <y>330</y>
         <width>181</width>
         <height>71</height>
@@ -338,13 +338,13 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string>Hexagon</string>
+       <string>Cartoon4</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="hexagon">
+     <widget class="QPushButton" name="cartoon4">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>500</x>
         <y>210</y>
         <width>181</width>
         <height>71</height>
@@ -361,13 +361,13 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string>Square</string>
+       <string>Cartoon3</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="rhombus">
+     <widget class="QPushButton" name="cartoon5">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>280</x>
         <y>210</y>
         <width>181</width>
         <height>71</height>
@@ -384,147 +384,7 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string>Triangle</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="distance">
-     <widget class="QLabel" name="label_13">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>791</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
-color: rgb(5, 116, 186)
-</string>
-      </property>
-      <property name="text">
-       <string>Please choose your desired distance </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_14">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>100</y>
-        <width>791</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
-color: rgb(5, 116, 186)
-</string>
-      </property>
-      <property name="text">
-       <string>for the route</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="fivekms">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>220</y>
-        <width>331</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     background-color: rgb(5, 116, 186);
-     border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
-     color: rgb(198, 230, 184);
-}
-
-
-
-
-
-
-
-</string>
-      </property>
-      <property name="text">
-       <string>5 kms</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="tenkms">
-      <property name="geometry">
-       <rect>
-        <x>230</x>
-        <y>320</y>
-        <width>331</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     background-color: rgb(5, 116, 186);
-     border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
-     color: rgb(198, 230, 184);
-}
-
-
-
-
-
-
-
-</string>
-      </property>
-      <property name="text">
-       <string>10 kms</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="fifteenkms">
-      <property name="geometry">
-       <rect>
-        <x>440</x>
-        <y>410</y>
-        <width>331</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-     background-color: rgb(5, 116, 186);
-     border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
-     color: rgb(198, 230, 184);
-}
-
-
-
-
-
-
-
-</string>
-      </property>
-      <property name="text">
-       <string>15 kms</string>
+       <string>Cartoon2</string>
       </property>
      </widget>
     </widget>
@@ -636,7 +496,7 @@ color: rgb(5, 116, 186)
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

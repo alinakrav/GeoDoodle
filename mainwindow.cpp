@@ -26,27 +26,27 @@ void MainWindow::on_pushButton_2_clicked()
     ui -> stackedWidget -> setCurrentIndex(2);
 }
 
-void MainWindow::on_pentagon_clicked()
+void MainWindow::on_cartoon1_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(3);
 
 }
-void MainWindow::on_triangle_clicked()
+void MainWindow::on_cartoon2_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(3);
 
 }
-void MainWindow::on_square_clicked()
+void MainWindow::on_cartoon3_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(3);
 
 }
-void MainWindow::on_hexagon_clicked()
+void MainWindow::on_cartoon4_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(3);
 
 }
-void MainWindow::on_rhombus_clicked()
+void MainWindow::on_cartoon5_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(3);
 
