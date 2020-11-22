@@ -4,7 +4,8 @@ Ui::MainWindow ui;
 QString type;
 // Data used for API calls
 int coordPrecision = 17;
-QString locationURL = "http://api.ipstack.com/check?access_key=b9a2e73fde34f69ef626c51d53663192";
+QString userLocationUrl = "http://api.ipstack.com/check?access_key=b9a2e73fde34f69ef626c51d53663192";
+QString locationUrlFor = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=geometry&inputtype=textquery&key=AIzaSyBq5Lv-ZfLXrNmcDt-fN3koYi-vcV4vU4Q&input=";
 QString lat1 = "44.234025";
 QString lon1 = "-76.502939";
 QString lat2 = "44.222802";
@@ -31,16 +32,27 @@ void Http::saveResponse(QNetworkReply* reply) {
     jsonObj = jsonResponse.object();
 
     // parse response in a specific way
-    if (type == "location")
-        printLocation();
-    else if (type == "something")
+    if (type == "userLocation")
+        printUserLocation();
+    else if (type == "searchLocation")
+        printSearchLocation();
+    else if (type == "something else")
         return;
 }
-
-void Http::printLocation() {
+void Http::printUserLocation() {
     // parse response
-    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
     QString latitude = QString::number(jsonObj["latitude"].toDouble(), 'g', coordPrecision);
+    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
+    ui.testArea->appendPlainText("User location...");
+    ui.testArea->appendPlainText("Latitude: " + latitude);
+    ui.testArea->appendPlainText("Longitude: " + longitude);
+}
+
+void Http::printSearchLocation() {
+    QJsonObject location = jsonObj["candidates"].toArray().at(0)["geometry"].toObject()["location"].toObject();
+    QString latitude = QString::number(location["lat"].toDouble(), 'g', coordPrecision);
+    QString longitude = QString::number(location["lng"].toDouble(), 'g', coordPrecision);
+    ui.testArea->appendPlainText("Searched location...");
     ui.testArea->appendPlainText("Latitude: " + latitude);
     ui.testArea->appendPlainText("Longitude: " + longitude);
 }

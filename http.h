@@ -18,7 +18,8 @@ class Http : public QObject
 public:
     Http(QString, QString, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
     ~Http(); // destructor
-    void printLocation(); // parses and prints data from location api response
+    void printUserLocation(); // parses and prints data from user location api response
+    void printSearchLocation();
 private slots:
     void saveResponse(QNetworkReply *); // saves json in class to use later
 private:
