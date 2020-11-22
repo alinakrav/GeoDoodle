@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "http.cpp"
-#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -11,12 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox->addItem("Please Select");
     ui->comboBox->addItem("Downtown Toronto");
 
-    // make http handler and get info from link defined in it
-    Http http;
-    http.getResponse(locationURL);
-    // put data into textbox
-    ui->testArea->appendPlainText("my longitude: " + http.getLongitude());
-    ui->testArea->appendPlainText("my latitude: " + http.getLatitude());
+    // http object prints needed data to needed widgets, cannot get data from this object due to async call
+    new Http(locationURL, "location", *ui);
 }
 
 MainWindow::~MainWindow()
