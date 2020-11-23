@@ -20,35 +20,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-<<<<<<< HEAD
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>801</width>
-      <height>551</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:rgb(189, 226, 176)</string>
-    </property>
-    <property name="currentIndex">
-     <number>2</number>
-    </property>
-    <widget class="QWidget" name="welcome">
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(189, 226, 176)</string>
-     </property>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>140</y>
-        <width>571</width>
-        <height>71</height>
-       </rect>
-=======
    <property name="sizePolicy">
     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
      <horstretch>0</horstretch>
@@ -69,7 +40,6 @@
         <width>16777215</width>
         <height>16777215</height>
        </size>
->>>>>>> be28a48a24bbea7602f83f9221b19a0a82e5b17f
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(189, 226, 176)</string>
@@ -268,71 +238,6 @@ color: black</string>
 
 
 </string>
-<<<<<<< HEAD
-      </property>
-      <property name="text">
-       <string>NEXT</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="picture">
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(189, 226, 176)</string>
-     </property>
-     <widget class="QLabel" name="label_7">
-      <property name="geometry">
-       <rect>
-        <x>-10</x>
-        <y>50</y>
-        <width>791</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
-color: rgb(5, 116, 186)
-</string>
-      </property>
-      <property name="text">
-       <string>Please choose from the </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_8">
-      <property name="geometry">
-       <rect>
-        <x>-10</x>
-        <y>100</y>
-        <width>791</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
-color: rgb(5, 116, 186)
-</string>
-      </property>
-      <property name="text">
-       <string> given funky images below!</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="cartoon1">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>210</y>
-        <width>181</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-=======
           </property>
           <property name="text">
            <string>NEXT</string>
@@ -382,7 +287,6 @@ color: black</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -390,24 +294,6 @@ color: black</string>
 }
 
 </string>
-<<<<<<< HEAD
-      </property>
-      <property name="text">
-       <string>Cartoon1</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="cartoon2">
-      <property name="geometry">
-       <rect>
-        <x>410</x>
-        <y>330</y>
-        <width>181</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-=======
           </property>
           <property name="text">
            <string>Cartoon3</string>
@@ -424,7 +310,6 @@ color: black</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -432,24 +317,6 @@ color: black</string>
 }
 
 </string>
-<<<<<<< HEAD
-      </property>
-      <property name="text">
-       <string>Cartoon5</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="cartoon3">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>330</y>
-        <width>181</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-=======
           </property>
           <property name="text">
            <string>Cartoon2</string>
@@ -466,7 +333,6 @@ color: black</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -474,24 +340,6 @@ color: black</string>
 }
 
 </string>
-<<<<<<< HEAD
-      </property>
-      <property name="text">
-       <string>Cartoon4</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="cartoon4">
-      <property name="geometry">
-       <rect>
-        <x>500</x>
-        <y>210</y>
-        <width>181</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-=======
           </property>
           <property name="text">
            <string>Cartoon5</string>
@@ -508,7 +356,6 @@ color: black</string>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -516,24 +363,6 @@ color: black</string>
 }
 
 </string>
-<<<<<<< HEAD
-      </property>
-      <property name="text">
-       <string>Cartoon3</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="cartoon5">
-      <property name="geometry">
-       <rect>
-        <x>280</x>
-        <y>210</y>
-        <width>181</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
-=======
           </property>
           <property name="text">
            <string>Cartoon1</string>
@@ -571,7 +400,6 @@ color: rgb(5, 116, 186)
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -579,49 +407,6 @@ color: rgb(5, 116, 186)
 }
 
 </string>
-<<<<<<< HEAD
-      </property>
-      <property name="text">
-       <string>Cartoon2</string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="load">
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(176, 199, 234)</string>
-     </property>
-     <widget class="QLabel" name="label_9">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>170</y>
-        <width>781</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 30 80pt &quot;Copperplate&quot;;
-color:rgb(81, 141, 72)</string>
-      </property>
-      <property name="text">
-       <string>Loading...</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_10">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>250</y>
-        <width>781</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
-=======
           </property>
           <property name="text">
            <string>Cartoon4</string>
@@ -672,7 +457,6 @@ color: rgb(5, 116, 186)
           </property>
           <property name="styleSheet">
            <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
 color:rgb(185, 205, 237);
 background-color: rgb(95, 152, 80);</string>
           </property>
@@ -758,13 +542,8 @@ color: rgb(5, 116, 186)
     <rect>
      <x>0</x>
      <y>0</y>
-<<<<<<< HEAD
-     <width>800</width>
-     <height>24</height>
-=======
      <width>1207</width>
      <height>26</height>
->>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
     </rect>
    </property>
   </widget>
