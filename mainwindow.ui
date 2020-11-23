@@ -6,14 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1207</width>
+    <height>743</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+<<<<<<< HEAD
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
@@ -41,53 +48,100 @@
         <width>571</width>
         <height>71</height>
        </rect>
+=======
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+>>>>>>> be28a48a24bbea7602f83f9221b19a0a82e5b17f
       </property>
       <property name="styleSheet">
-       <string notr="true">font: 30 86pt &quot;Copperplate&quot;;
+       <string notr="true">background-color:rgb(189, 226, 176)</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="welcome">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(189, 226, 176)</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 86pt &quot;Copperplate&quot;;
 color: rgb(5, 116, 186)</string>
-      </property>
-      <property name="text">
-       <string>Welcome To </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>230</y>
-        <width>471</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 73pt &quot;Copperplate&quot;;
+          </property>
+          <property name="text">
+           <string>Welcome To </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 73pt &quot;Copperplate&quot;;
 color: rgb(5, 116, 186)
 </string>
-      </property>
-      <property name="text">
-       <string>GEODoodle</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>330</y>
-        <width>331</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+          </property>
+          <property name="text">
+           <string>GeoDoodle</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="pushButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -101,117 +155,111 @@ color: rgb(5, 116, 186)
 
 
 </string>
-      </property>
-      <property name="text">
-       <string>Click to Continue.. </string>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="location">
-     <property name="styleSheet">
-      <string notr="true">background-color:rgb(176, 199, 234)</string>
-     </property>
-     <widget class="QLabel" name="label_3">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>30</y>
-        <width>781</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 30 50pt &quot;Copperplate&quot;;
+          </property>
+          <property name="text">
+           <string>Click to Continue.. </string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="location">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(176, 199, 234)</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0" colspan="2">
+         <widget class="QLabel" name="label_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 50pt &quot;Copperplate&quot;;
 color:rgb(81, 141, 72)</string>
-      </property>
-      <property name="text">
-       <string>Please select your location </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>120</y>
-        <width>321</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
+          </property>
+          <property name="text">
+           <string>Please select your location </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 15pt &quot;Copperplate&quot;;
 color: black</string>
-      </property>
-      <property name="text">
-       <string>Note that for the MVP, </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_5">
-      <property name="geometry">
-       <rect>
-        <x>-20</x>
-        <y>160</y>
-        <width>871</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
+          </property>
+          <property name="text">
+           <string>Location</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
 color: black</string>
-      </property>
-      <property name="text">
-       <string>This application will only work for Downtown Toronto </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox">
-      <property name="geometry">
-       <rect>
-        <x>240</x>
-        <y>280</y>
-        <width>311</width>
-        <height>41</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>250</x>
-        <y>260</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 30 15pt &quot;Copperplate&quot;;
-color: black</string>
-      </property>
-      <property name="text">
-       <string>Location</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>370</y>
-        <width>161</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton {
+          </property>
+          <property name="text">
+           <string>Note that for the MVP, </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QComboBox" name="comboBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
      background-color: rgb(95, 152, 80);
      border-radius: 10px;
      font: 40pt &quot;.AppleSystemUIFont&quot;;
@@ -220,6 +268,7 @@ color: black</string>
 
 
 </string>
+<<<<<<< HEAD
       </property>
       <property name="text">
        <string>NEXT</string>
@@ -283,6 +332,57 @@ color: rgb(5, 116, 186)
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+=======
+          </property>
+          <property name="text">
+           <string>NEXT</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
+color: black</string>
+          </property>
+          <property name="text">
+           <string>This application will only work for Downtown Toronto </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="picture">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(189, 226, 176)</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="2" column="3">
+         <widget class="QPushButton" name="cartoon4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -290,6 +390,7 @@ color: rgb(5, 116, 186)
 }
 
 </string>
+<<<<<<< HEAD
       </property>
       <property name="text">
        <string>Cartoon1</string>
@@ -306,6 +407,24 @@ color: rgb(5, 116, 186)
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+=======
+          </property>
+          <property name="text">
+           <string>Cartoon3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1" colspan="2">
+         <widget class="QPushButton" name="cartoon5">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -313,6 +432,7 @@ color: rgb(5, 116, 186)
 }
 
 </string>
+<<<<<<< HEAD
       </property>
       <property name="text">
        <string>Cartoon5</string>
@@ -329,6 +449,24 @@ color: rgb(5, 116, 186)
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+=======
+          </property>
+          <property name="text">
+           <string>Cartoon2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2" colspan="2">
+         <widget class="QPushButton" name="cartoon2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -336,6 +474,7 @@ color: rgb(5, 116, 186)
 }
 
 </string>
+<<<<<<< HEAD
       </property>
       <property name="text">
        <string>Cartoon4</string>
@@ -352,6 +491,24 @@ color: rgb(5, 116, 186)
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+=======
+          </property>
+          <property name="text">
+           <string>Cartoon5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="cartoon1">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -359,6 +516,7 @@ color: rgb(5, 116, 186)
 }
 
 </string>
+<<<<<<< HEAD
       </property>
       <property name="text">
        <string>Cartoon3</string>
@@ -375,6 +533,45 @@ color: rgb(5, 116, 186)
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
+=======
+          </property>
+          <property name="text">
+           <string>Cartoon1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="4">
+         <widget class="QLabel" name="label_7">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
+color: rgb(5, 116, 186)
+</string>
+          </property>
+          <property name="text">
+           <string>Please choose from the </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QPushButton" name="cartoon3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
      font: 33pt &quot;.AppleSystemUIFont&quot;;
@@ -382,6 +579,7 @@ color: rgb(5, 116, 186)
 }
 
 </string>
+<<<<<<< HEAD
       </property>
       <property name="text">
        <string>Cartoon2</string>
@@ -423,80 +621,150 @@ color:rgb(81, 141, 72)</string>
       </property>
       <property name="styleSheet">
        <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
+=======
+          </property>
+          <property name="text">
+           <string>Cartoon4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="4">
+         <widget class="QLabel" name="label_8">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
+color: rgb(5, 116, 186)
+</string>
+          </property>
+          <property name="text">
+           <string> given funky images below!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="load">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(176, 199, 234)</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 25pt &quot;Copperplate&quot;;
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
 color:rgb(185, 205, 237);
 background-color: rgb(95, 152, 80);</string>
-      </property>
-      <property name="text">
-       <string>Give us a second why we generate your route!</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QWidget" name="output">
-     <widget class="QLabel" name="label_11">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>791</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
+          </property>
+          <property name="text">
+           <string>Give us a second why we generate your route!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: 30 80pt &quot;Copperplate&quot;;
+color:rgb(81, 141, 72)</string>
+          </property>
+          <property name="text">
+           <string>Loading...</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="output">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_11">
+          <property name="styleSheet">
+           <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
 color: rgb(5, 116, 186)
 </string>
-      </property>
-      <property name="text">
-       <string>Here is the route based </string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_12">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>791</width>
-        <height>71</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
+          </property>
+          <property name="text">
+           <string>Here is the route based </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_12">
+          <property name="styleSheet">
+           <string notr="true">font: 75 35pt &quot;Copperplate&quot;;
 color: rgb(5, 116, 186)
 </string>
-      </property>
-      <property name="text">
-       <string>on the route that you chose!</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
+          </property>
+          <property name="text">
+           <string>on the route that you chose!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGraphicsView" name="graphicsView"/>
+        </item>
+       </layout>
+      </widget>
      </widget>
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="geometry">
-       <rect>
-        <x>260</x>
-        <y>170</y>
-        <width>256</width>
-        <height>192</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
+<<<<<<< HEAD
      <width>800</width>
      <height>24</height>
+=======
+     <width>1207</width>
+     <height>26</height>
+>>>>>>> c551ab09313bd1c752a31dc197857f93e4039113
     </rect>
    </property>
   </widget>
