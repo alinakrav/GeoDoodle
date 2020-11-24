@@ -10,8 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox->addItem("Please Select");
     ui->comboBox->addItem("Downtown Toronto");
 
-    // http object prints needed data to needed widgets, cannot get data from this object due to async call
-    // more than one async calls jumbles data together, think of another way to call this twice
+    // all urls processed in one call due to asynchronous restrictions on multiple separate calls
     Http::urls urls;
     urls.searchLocation = locationUrlFor + "Toronto";
     urls.userLocation = userLocationUrl;

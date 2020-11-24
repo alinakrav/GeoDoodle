@@ -45,6 +45,7 @@ Http::Http(Http::urls urls, Ui::MainWindow ui_) : ui(ui_) {
     QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
 
     sendRequest(queryURL, "snapRoads");
+    createRouteURL();
     //------------------------
 
     sendRequest(urls.userLocation, "userLocation");
@@ -83,7 +84,8 @@ void Http::getSnapRoadsResponse(QNetworkReply* reply) {
 QString Http::createRouteURL() {
     QString routeURL = "https://www.google.ca/maps/dir/";
     QString lat, lon;
-    cartesianCoordinate snappedPointsArray[] = {{"41.8507300","-87.6512600"},{"41.8525800","-87.6514100"},{"41.0507300","-87.6512600"}};
+//    cartesianCoordinate snappedPointsArray[] = {{"41.8507300","-87.6512600"},{"41.8525800","-87.6514100"},{"41.0507300","-87.6512600"}};
+    cartesianCoordinate snappedPointsArray[] = {{lat1,lon1},{lat2,lon2},{lat3,lon3},{lat1,lon1}};
     for(cartesianCoordinate coord : snappedPointsArray){
         lat = coord.lat;
         lon = coord.lon;
