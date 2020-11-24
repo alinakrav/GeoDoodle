@@ -12,8 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     // http object prints needed data to needed widgets, cannot get data from this object due to async call
     // more than one async calls jumbles data together, think of another way to call this twice
-    new Http(locationUrlFor + "Toronto", "searchLocation", *ui);
-//    new Http(userLocationUrl, "userLocation", *ui);
+    Http::urls urls;
+    urls.searchLocation = locationUrlFor + "Toronto";
+    urls.userLocation = userLocationUrl;
+
+    new Http(urls, *ui);
 }
 
 MainWindow::~MainWindow()

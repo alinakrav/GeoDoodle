@@ -16,13 +16,27 @@ class Http : public QObject
     Q_OBJECT
 
 public:
-    Http(QString, QString, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
+    // contains all urls passed from mainwindow
+    struct urls {
+        QString searchLocation;
+        QString userLocation;
+    };
+    Http(struct Http::urls, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
     ~Http(); // destructor
-    void printUserLocation(); // parses and prints data from user location api response
+    void printUserLocation(); // parses and prints data from response
     void printSearchLocation();
 private slots:
-    void saveResponse(QNetworkReply *); // saves json in class to use later
+    void getUserLocationResponse(QNetworkReply *); // gets and prepares response
+    void getSearchLocationResponse(QNetworkReply *);
+    // zack
+    void getSnapRoadsResponse(QNetworkReply *);
+
 private:
+    void sendRequest(QString, QString);
+    Ui::MainWindow ui; // ui will be modified within aync process
     QJsonObject jsonObj; // json object saved from response
+
+    //------------------------ zack
+    QString createRouteURL();
 };
 #endif // HTTP_H
