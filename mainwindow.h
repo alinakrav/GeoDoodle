@@ -28,7 +28,12 @@ private slots:
 
     void on_stackedWidget_currentChanged(int arg1);
 
+    void on_spinBox_valueChanged(const int &arg1);
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
+    int radius;
 };
 #endif // MAINWINDOW_H
