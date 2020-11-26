@@ -19,7 +19,7 @@ void test(string tested, string correct) {
 int main() {
     vector<double> toronto = {43.684921, -79.477013};
 
-    vector<vector<float>> pic_A {{0,2},{1,0},{3,0},{4,2},{2,3}}; //irregular pentagon 
+    vector<vector<float>> pic_A {{0,2},{1,0},{3,0},{4,2},{2,3}}; //irregular pentagon
     ImageGraph graph_A(pic_A);
     graph_A.place_on_map(toronto, 6.4);
     test(graph_A.path(), "43.690348,-79.501860|43.672259,-79.489433|43.672259,-79.464593|43.690348,-79.452166|43.699392,-79.477013|");

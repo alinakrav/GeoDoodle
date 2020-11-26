@@ -1,6 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "http.cpp"
+#include "ImageGraph.h"
+#include <vector>
+#include <QString>
+
+vector<double> toronto = {43.684921, -79.477013};
+QString s;
+QString url;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -42,26 +49,55 @@ void MainWindow::on_pushButton_3_clicked()
 void MainWindow::on_cartoon1_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
+    vector<vector<float>> pic_A {{0,2},{1,0},{3,0},{4,2},{2,3}}; //irregular pentagon
+    ImageGraph graph_A(pic_A);
+    graph_A.place_on_map(toronto, radius);
+    s = QString::fromStdString(graph_A.path());
+    Http::urls urls;
+    urls.searchLocation = locationUrlFor + "Toronto";
+    urls.userLocation = userLocationUrl;
+    urls.coords = s;
+    Http *h = new Http(urls, *ui);
+    url = h->createRouteURL();
+    ui -> stackedWidget -> setCurrentIndex(5);
+    ui -> output_url -> appendPlainText(url);
+
 
 }
 void MainWindow::on_cartoon2_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
+    vector<vector<float>> pic_B {{1,1},{-1,1},{0,-1}}; //triangle
+    ImageGraph graph_B(pic_B);
+    graph_B.place_on_map(toronto, radius);
+    //s = graph_B.path();
 
 }
 void MainWindow::on_cartoon3_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
+    vector<vector<float>> pic_C {{0,0},{0,1},{1,1},{1,0}}; //unit square
+    ImageGraph graph_C(pic_C);
+    graph_C.place_on_map(toronto, radius);
+    //s = graph_C.path();
 
 }
 void MainWindow::on_cartoon4_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
+    vector<vector<float>> pic_D {{1,4},{0,2},{1,0},{4,0},{5,2},{4,4}}; //irregular hexagon
+    ImageGraph graph_D(pic_D);
+    graph_D.place_on_map(toronto, radius);
+    //s = graph_D.path();
 
 }
 void MainWindow::on_cartoon5_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
+    vector<vector<float>> pic_E {{2,0},{0,2},{-2,0},{0,-2}}; //regular rhombus
+    ImageGraph graph_E(pic_E);
+    graph_E.place_on_map(toronto, radius);
+    //s = graph_E.path();
 
 }
 

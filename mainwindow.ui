@@ -33,7 +33,7 @@
      <string notr="true">background-color:rgb(189, 226, 176)</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="welcome">
      <property name="styleSheet">
@@ -63,7 +63,7 @@ color: rgb(5, 116, 186)</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>200</y>
+        <y>290</y>
         <width>1111</width>
         <height>111</height>
        </rect>
@@ -74,7 +74,7 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string>GEODoodle</string>
+       <string>GeoDoodle</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -84,7 +84,7 @@ color: rgb(5, 116, 186)
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>310</y>
+        <y>510</y>
         <width>1111</width>
         <height>111</height>
        </rect>
@@ -110,24 +110,6 @@ color: rgb(5, 116, 186)
       </property>
       <property name="text">
        <string>Click to Continue...</string>
-      </property>
-     </widget>
-     <widget class="QPlainTextEdit" name="testArea">
-      <property name="geometry">
-       <rect>
-        <x>13</x>
-        <y>439</y>
-        <width>1081</width>
-        <height>301</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="plainText">
-       <string>Test your output here:
-</string>
       </property>
      </widget>
     </widget>
@@ -373,7 +355,7 @@ color: rgb(5, 116, 186)
 </string>
       </property>
       <property name="text">
-       <string> given funky images below!</string>
+       <string> given images below!</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -392,14 +374,14 @@ color: rgb(5, 116, 186)
        <string notr="true">QPushButton {
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
+     font: 18pt &quot;.AppleSystemUIFont&quot;;
      color: rgb(198, 230, 184);
 }
 
 </string>
       </property>
       <property name="text">
-       <string>Cartoon1</string>
+       <string>Irregular Pentagon</string>
       </property>
      </widget>
      <widget class="QPushButton" name="cartoon2">
@@ -415,14 +397,14 @@ color: rgb(5, 116, 186)
        <string notr="true">QPushButton {
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
+     font: 18pt &quot;.AppleSystemUIFont&quot;;
      color: rgb(198, 230, 184);
 }
 
 </string>
       </property>
       <property name="text">
-       <string>Cartoon5</string>
+       <string>Regular Rhombus</string>
       </property>
      </widget>
      <widget class="QPushButton" name="cartoon3">
@@ -438,14 +420,14 @@ color: rgb(5, 116, 186)
        <string notr="true">QPushButton {
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
+     font: 18pt &quot;.AppleSystemUIFont&quot;;
      color: rgb(198, 230, 184);
 }
 
 </string>
       </property>
       <property name="text">
-       <string>Cartoon4</string>
+       <string>Irregular Hexagon</string>
       </property>
      </widget>
      <widget class="QPushButton" name="cartoon4">
@@ -461,14 +443,14 @@ color: rgb(5, 116, 186)
        <string notr="true">QPushButton {
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
+     font: 18pt &quot;.AppleSystemUIFont&quot;;
      color: rgb(198, 230, 184);
 }
 
 </string>
       </property>
       <property name="text">
-       <string>Cartoon3</string>
+       <string>Square</string>
       </property>
      </widget>
      <widget class="QPushButton" name="cartoon5">
@@ -484,14 +466,14 @@ color: rgb(5, 116, 186)
        <string notr="true">QPushButton {
      background-color: rgb(5, 116, 186);
      border-radius: 10px;
-     font: 33pt &quot;.AppleSystemUIFont&quot;;
+     font: 18pt &quot;.AppleSystemUIFont&quot;;
      color: rgb(198, 230, 184);
 }
 
 </string>
       </property>
       <property name="text">
-       <string>Cartoon2</string>
+       <string>Triangle</string>
       </property>
      </widget>
     </widget>
@@ -584,6 +566,21 @@ color: rgb(5, 116, 186)
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QPlainTextEdit" name="output_url">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>350</y>
+        <width>1111</width>
+        <height>87</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 255);
+font: 75 35pt &quot;Copperplate&quot;;
+color: rgb(0, 0, 0)</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -593,7 +590,7 @@ color: rgb(5, 116, 186)
      <x>0</x>
      <y>0</y>
      <width>1152</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

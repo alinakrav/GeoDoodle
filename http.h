@@ -20,11 +20,13 @@ public:
     struct urls {
         QString searchLocation;
         QString userLocation;
+        QString coords;
     };
     Http(struct Http::urls, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
     ~Http(); // destructor
-    void printUserLocation(); // parses and prints data from response
-    void printSearchLocation();
+    //void printUserLocation(); // parses and prints data from response
+    //void printSearchLocation();
+    QString createRouteURL();
 private slots:
     void getUserLocationResponse(QNetworkReply *); // gets and prepares response
     void getSearchLocationResponse(QNetworkReply *);
@@ -35,8 +37,5 @@ private:
     void sendRequest(QString, QString);
     Ui::MainWindow ui; // ui will be modified within aync process
     QJsonObject jsonObj; // json object saved from response
-
-    //------------------------ zack
-    QString createRouteURL();
 };
 #endif // HTTP_H

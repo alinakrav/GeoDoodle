@@ -27,21 +27,9 @@ struct cartesianCoordinate
 Http::Http(Http::urls urls, Ui::MainWindow ui_) : ui(ui_) {
     //------------------------ zack
 
-    //HARDCODED VALUE
-    //This shouldn't be needed after this class is merged with the coordinate image class
-    struct cartesianCoordinate input [3] = {{"44.234025","-76.502939"},{"44.222802","-76.490321"},{"44.221193","-76.512489"}};
-
     QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
-    QString path = "?path=";
+    QString path = "?path=" + urls.coords;
 
-    //HARDCODED VALUE
-    //This shouldn't be needed after this class is merged with the coordinate image class
-    for (int i = 0; i < 3; i++ ) {
-        path.append(input[i].lat + "," + input[i].lon);
-        if(i < 2){
-            path.append("|");
-        }
-    }
     QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
 
     sendRequest(queryURL, "snapRoads");
@@ -76,8 +64,9 @@ void Http::getSnapRoadsResponse(QNetworkReply* reply) {
         QJsonValue jsonLat = obj.value("latitude");
         QJsonValue jsonLon = obj.value("longitude");
 
-        //This statement doesn't work as intended.
-        snappedPoints.append({ jsonLat.toString(), jsonLon.toString()});
+        //This statement doesn't work as intended
+        cartesianCoordinate coord = {jsonLat.toString(), jsonLon.toString()};
+        snappedPoints.append(coord);
     }
 }
 
@@ -91,7 +80,7 @@ QString Http::createRouteURL() {
         lon = coord.lon;
         routeURL.append("'" + lat + "," + lon + "'" + "/");
     }
-    ui.testArea->appendPlainText("createRouteURL...\n" + routeURL);
+    //ui.testArea->appendPlainText("createRouteURL...\n" + routeURL);
     return routeURL;
 }
 //------------------------
@@ -100,32 +89,32 @@ void Http::getUserLocationResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
     jsonObj = jsonResponse.object();
-    printUserLocation();
+    //printUserLocation();
 }
 
 void Http::getSearchLocationResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
     jsonObj = jsonResponse.object();
-    printSearchLocation();
+    //printSearchLocation();
 }
-void Http::printUserLocation() {
-    // parse response
-    QString latitude = QString::number(jsonObj["latitude"].toDouble(), 'g', coordPrecision);
-    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
-    ui.testArea->appendPlainText("User location...");
-    ui.testArea->appendPlainText("Latitude: " + latitude);
-    ui.testArea->appendPlainText("Longitude: " + longitude);
-}
+//void Http::printUserLocation() {
+//    // parse response
+//    QString latitude = QString::number(jsonObj["latitude"].toDouble(), 'g', coordPrecision);
+//    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
+//    ui.testArea->appendPlainText("User location...");
+//    ui.testArea->appendPlainText("Latitude: " + latitude);
+//    ui.testArea->appendPlainText("Longitude: " + longitude);
+//}
 
-void Http::printSearchLocation() {
-    QJsonObject location = jsonObj["candidates"].toArray().at(0)["geometry"].toObject()["location"].toObject();
-    QString latitude = QString::number(location["lat"].toDouble(), 'g', coordPrecision);
-    QString longitude = QString::number(location["lng"].toDouble(), 'g', coordPrecision);
-    ui.testArea->appendPlainText("Searched location...");
-    ui.testArea->appendPlainText("Latitude: " + latitude);
-    ui.testArea->appendPlainText("Longitude: " + longitude);
-}
+//void Http::printSearchLocation() {
+//    QJsonObject location = jsonObj["candidates"].toArray().at(0)["geometry"].toObject()["location"].toObject();
+//    QString latitude = QString::number(location["lat"].toDouble(), 'g', coordPrecision);
+//    QString longitude = QString::number(location["lng"].toDouble(), 'g', coordPrecision);
+//    ui.testArea->appendPlainText("Searched location...");
+//    ui.testArea->appendPlainText("Latitude: " + latitude);
+//    ui.testArea->appendPlainText("Longitude: " + longitude);
+//}
 
 
 
