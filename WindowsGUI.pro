@@ -12,8 +12,7 @@ SOURCES += \
     ImageGraph.cpp \
     http.cpp \
     main.cpp \
-    mainwindow.cpp \
-    test.cpp
+    mainwindow.cpp
 
 HEADERS += \
     ../../../ImageGraph.h \

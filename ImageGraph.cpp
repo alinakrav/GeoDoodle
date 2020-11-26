@@ -112,8 +112,9 @@ string ImageGraph::path(){
     for (auto point : gps_points){
         s << point[0] << "," << point[1] << "|";
     }
-
-    return s.str();
+    string out = s.str();
+    out.pop_back();
+    return out;
 }
 
 vector<vector<float>> ImageGraph::get_cartesian(){

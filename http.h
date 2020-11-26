@@ -21,6 +21,7 @@ public:
         QString searchLocation;
         QString userLocation;
         QString coords;
+
     };
     Http(struct Http::urls, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
     ~Http(); // destructor
@@ -37,5 +38,6 @@ private:
     void sendRequest(QString, QString);
     Ui::MainWindow ui; // ui will be modified within aync process
     QJsonObject jsonObj; // json object saved from response
+    QVector<struct cartesianCoordinate> snappedPoints;
 };
 #endif // HTTP_H

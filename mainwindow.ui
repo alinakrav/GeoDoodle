@@ -33,7 +33,7 @@
      <string notr="true">background-color:rgb(189, 226, 176)</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="welcome">
      <property name="styleSheet">
@@ -577,7 +577,7 @@ color: rgb(5, 116, 186)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(255, 255, 255);
-font: 75 35pt &quot;Copperplate&quot;;
+font: 75 18pt &quot;Copperplate&quot;;
 color: rgb(0, 0, 0)</string>
       </property>
      </widget>
@@ -590,7 +590,7 @@ color: rgb(0, 0, 0)</string>
      <x>0</x>
      <y>0</y>
      <width>1152</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

@@ -7,14 +7,7 @@ const QString IP_KEY = "b9a2e73fde34f69ef626c51d53663192";
 int coordPrecision = 17;
 QString userLocationUrl = "http://api.ipstack.com/check?access_key=" + IP_KEY;
 QString locationUrlFor = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=geometry&inputtype=textquery&key=" + MAPS_KEY + "&input=";
-QString lat1 = "44.234025";
-QString lon1 = "-76.502939";
-QString lat2 = "44.222802";
-QString lon2 = "-76.490321";
-QString lat3 = "44.221193";
-QString lon3 = "-76.512489";
-QString pathURL = "https://roads.googleapis.com/v1/snapToRoads?path=" + lat1 + "," + lon1 + "|" + lat2 + "," + lon2 + "|" + lat3 + "," + lon3 + "&interpolate=true&key=AIzaSyBq5Lv-ZfLXrNmcDt-fN3koYi-vcV4vU4Q";
-QString waypointsURL = "https://maps.googleapis.com/maps/api/directions/json?origin=44.234025,-76.502939&destination=44.234025,-76.502939&waypoints=44.222802,-76.490321|44.221193,-76.512489&key=AIzaSyBq5Lv-ZfLXrNmcDt-fN3koYi-vcV4vU4Q";
+
 
 //------------------------ zack
 struct cartesianCoordinate
@@ -29,9 +22,9 @@ Http::Http(Http::urls urls, Ui::MainWindow ui_) : ui(ui_) {
 
     QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
     QString path = "?path=" + urls.coords;
+    qDebug() << urls.coords;
 
     QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
-
     sendRequest(queryURL, "snapRoads");
     createRouteURL();
     //------------------------
@@ -58,29 +51,28 @@ void Http::getSnapRoadsResponse(QNetworkReply* reply) {
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
     QJsonObject jsonObj = jsonResponse.object();
     QJsonArray jsonArray = jsonObj["snappedPoints"].toArray();
-    QVector<struct cartesianCoordinate> snappedPoints;
     foreach (const QJsonValue & value, jsonArray) {
         QJsonObject obj = value["location"].toObject();
         QJsonValue jsonLat = obj.value("latitude");
         QJsonValue jsonLon = obj.value("longitude");
-
-        //This statement doesn't work as intended
-        cartesianCoordinate coord = {jsonLat.toString(), jsonLon.toString()};
+        double lat = jsonLat.toDouble();
+        double lon = jsonLon.toDouble();
+        cartesianCoordinate coord = { QString::number(lat), QString::number(lon)};
         snappedPoints.append(coord);
     }
+    createRouteURL();
 }
 
 QString Http::createRouteURL() {
     QString routeURL = "https://www.google.ca/maps/dir/";
     QString lat, lon;
-//    cartesianCoordinate snappedPointsArray[] = {{"41.8507300","-87.6512600"},{"41.8525800","-87.6514100"},{"41.0507300","-87.6512600"}};
-    cartesianCoordinate snappedPointsArray[] = {{lat1,lon1},{lat2,lon2},{lat3,lon3},{lat1,lon1}};
-    for(cartesianCoordinate coord : snappedPointsArray){
+    for(cartesianCoordinate coord : snappedPoints){
         lat = coord.lat;
         lon = coord.lon;
         routeURL.append("'" + lat + "," + lon + "'" + "/");
     }
-    //ui.testArea->appendPlainText("createRouteURL...\n" + routeURL);
+    ui.output_url->clear();
+    ui.output_url->appendPlainText(routeURL);
     return routeURL;
 }
 //------------------------

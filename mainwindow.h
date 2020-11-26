@@ -35,5 +35,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     int radius;
+    QString s;
+    QString url;
 };
 #endif // MAINWINDOW_H
