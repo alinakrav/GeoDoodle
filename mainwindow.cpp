@@ -49,6 +49,7 @@ void MainWindow::on_cartoon1_clicked()
     ui -> stackedWidget -> setCurrentIndex(4);
     vector<vector<float>> pic_A {{0,2},{1,0},{3,0},{4,2},{2,3}}; //irregular pentagon
     ImageGraph graph_A(pic_A);
+    qDebug() << radius;
     graph_A.place_on_map(toronto, radius);
     s = QString::fromStdString(graph_A.path());
     Http::urls urls;
@@ -65,7 +66,6 @@ void MainWindow::on_cartoon2_clicked()
     ImageGraph graph_B(pic_B);
     graph_B.place_on_map(toronto, radius);
     s = QString::fromStdString(graph_B.path());
-    qDebug()<<s;
     Http::urls urls;
     urls.searchLocation = locationUrlFor + "Toronto";
     urls.userLocation = userLocationUrl;
