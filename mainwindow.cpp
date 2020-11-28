@@ -14,13 +14,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->comboBox->addItem("Please Select");
     ui->comboBox->addItem("Downtown Toronto");
-
-// all urls processed in one call due to asynchronous restrictions on multiple separate calls
-    Http::urls urls;
-    urls.searchLocation = locationUrlFor + "Toronto";
-    urls.userLocation = userLocationUrl;
-
-    new Http(urls, *ui);
 }
 
 MainWindow::~MainWindow()

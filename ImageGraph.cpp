@@ -110,7 +110,7 @@ string ImageGraph::path(){
     s << fixed << setprecision(6);
 
     for (auto point : gps_points){
-        s << point[0] << "," << point[1] << "|";
+        s << "'" << point[0] << "," << point[1] << "'" << "/";
     }
     string out = s.str();
     out.pop_back();

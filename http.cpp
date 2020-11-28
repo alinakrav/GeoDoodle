@@ -8,29 +8,25 @@ int coordPrecision = 17;
 QString userLocationUrl = "http://api.ipstack.com/check?access_key=" + IP_KEY;
 QString locationUrlFor = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=geometry&inputtype=textquery&key=" + MAPS_KEY + "&input=";
 
-
-//------------------------ zack
 struct cartesianCoordinate
 {
     QString lat;
     QString lon;
 };
-//------------------------
 
 Http::Http(Http::urls urls, Ui::MainWindow ui_) : ui(ui_) {
-    //------------------------ zack
 
     QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
     QString path = "?path=" + urls.coords;
-    qDebug() << urls.coords;
+//    qDebug() << urls.coords;
 
     QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
-    sendRequest(queryURL, "snapRoads");
-    createRouteURL();
-    //------------------------
 
-    sendRequest(urls.userLocation, "userLocation");
-    sendRequest(urls.searchLocation, "searchLocation");
+    displayURL(urls.coords);
+//    sendRequest(queryURL, "snapRoads");
+
+//    sendRequest(urls.userLocation, "userLocation");
+//    sendRequest(urls.searchLocation, "searchLocation");
 }
 
 void Http::sendRequest(QString url, QString type) {
@@ -45,7 +41,6 @@ void Http::sendRequest(QString url, QString type) {
     QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
     reply->waitForReadyRead(3000);
 }
-//------------------------ zack
 void Http::getSnapRoadsResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
@@ -63,6 +58,17 @@ void Http::getSnapRoadsResponse(QNetworkReply* reply) {
     createRouteURL();
 }
 
+void Http::displayURL(QString s) {
+    QString routeURL = "https://www.google.ca/maps/dir/" + s + "/data=!4m2!4m1!3e2";
+    ui.output_url->clear();
+    ui.output_url->appendPlainText(routeURL);
+
+    QWebEngineView *view = new QWebEngineView();
+    view->resize(QApplication::desktop()->screenGeometry().width()/3*2, QApplication::desktop()->screenGeometry().height());
+    view->load(QUrl(routeURL));
+    view->show();
+}
+
 QString Http::createRouteURL() {
     QString routeURL = "https://www.google.ca/maps/dir/";
     QString lat, lon;
@@ -75,38 +81,37 @@ QString Http::createRouteURL() {
     ui.output_url->appendPlainText(routeURL);
     return routeURL;
 }
-//------------------------
 
 void Http::getUserLocationResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
     jsonObj = jsonResponse.object();
-    //printUserLocation();
+    printUserLocation();
 }
 
 void Http::getSearchLocationResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
     jsonObj = jsonResponse.object();
-    //printSearchLocation();
+    printSearchLocation();
 }
-//void Http::printUserLocation() {
-//    // parse response
-//    QString latitude = QString::number(jsonObj["latitude"].toDouble(), 'g', coordPrecision);
-//    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
+void Http::printUserLocation() {
+    // parse response
+    QString latitude = QString::number(jsonObj["latitude"].toDouble(), 'g', coordPrecision);
+    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
 //    ui.testArea->appendPlainText("User location...");
 //    ui.testArea->appendPlainText("Latitude: " + latitude);
 //    ui.testArea->appendPlainText("Longitude: " + longitude);
-//}
+}
 
-//void Http::printSearchLocation() {
-//    QJsonObject location = jsonObj["candidates"].toArray().at(0)["geometry"].toObject()["location"].toObject();
-//    QString latitude = QString::number(location["lat"].toDouble(), 'g', coordPrecision);
-//    QString longitude = QString::number(location["lng"].toDouble(), 'g', coordPrecision);
+void Http::printSearchLocation() {
+    QJsonObject location = jsonObj["candidates"].toArray().at(0)["geometry"].toObject()["location"].toObject();
+    QString latitude = QString::number(location["lat"].toDouble(), 'g', coordPrecision);
+    QString longitude = QString::number(location["lng"].toDouble(), 'g', coordPrecision);
 //    ui.testArea->appendPlainText("Searched location...");
 //    ui.testArea->appendPlainText("Latitude: " + latitude);
 //    ui.testArea->appendPlainText("Longitude: " + longitude);
-//}
+}
 
 
 

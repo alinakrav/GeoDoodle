@@ -5,6 +5,8 @@
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
 #include <QUrl>
+#include <QApplication>
+#include <QtWebEngineWidgets/QtWebEngineWidgets>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
@@ -25,13 +27,13 @@ public:
     };
     Http(struct Http::urls, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
     ~Http(); // destructor
-    //void printUserLocation(); // parses and prints data from response
-    //void printSearchLocation();
+    void printUserLocation(); // parses and prints data from response
+    void printSearchLocation();
     QString createRouteURL();
+    void displayURL(QString);
 private slots:
     void getUserLocationResponse(QNetworkReply *); // gets and prepares response
     void getSearchLocationResponse(QNetworkReply *);
-    // zack
     void getSnapRoadsResponse(QNetworkReply *);
 
 private:
