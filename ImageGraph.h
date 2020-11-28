@@ -18,6 +18,7 @@ class ImageGraph {
         vector<vector<double>> get_gps();
 
         string path(); //puts values into snap to roads format
+        void set_radius(float); //scales polar coordinates to achieve desired max radius
 
     private:
         //point systems
@@ -34,6 +35,4 @@ class ImageGraph {
         void recenter(); //finds centroid of input points and sets it to origin
         vector<vector<float>> to_polar(vector<vector<float>>); //converts cartesian points to polar
         vector<vector<float>> to_cartesian(vector<vector<float>>); //converts cartesian points to polar
-
-        void set_radius(float); //scales polar coordinates to achieve desired max radius 
 };

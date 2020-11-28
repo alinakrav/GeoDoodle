@@ -16,6 +16,7 @@ SOURCES += \
 
 HEADERS += \
     ../../../ImageGraph.h \
+    ImageGraph.h \
     http.h \
     mainwindow.h
 
