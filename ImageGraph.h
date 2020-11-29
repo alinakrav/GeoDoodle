@@ -19,7 +19,7 @@ class ImageGraph {
 
         string path(); //puts values into snap to roads format
         void set_radius(float); //scales polar coordinates to achieve desired max radius
-        void double_density(size_t); // interpolates extra points between lines, doubling the number of points
+        void double_density(size_t); //interpolates extra points between lines, doubling the number of points
 
     private:
         //point systems
@@ -29,7 +29,7 @@ class ImageGraph {
         vector<vector<double>> gps_points; //cartesian points as latitudes and longitudes
         
         //attributes for map placement
-        float max_r;
+        float max_r; //largest polar radius value present
         vector<double> location; //center point latitude and longitude
 
         //init helpers
