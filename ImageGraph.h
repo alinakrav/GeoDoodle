@@ -19,7 +19,7 @@ class ImageGraph {
 
         string path(); //puts values into snap to roads format
         void set_radius(float); //scales polar coordinates to achieve desired max radius
-        void double_density(size_t); // interpolates extra points between lines
+        void double_density(size_t); // interpolates extra points between lines, doubling the number of points
 
     private:
         //point systems
@@ -34,7 +34,7 @@ class ImageGraph {
 
         //init helpers
         void recenter(); //finds centroid of input points and sets it to origin
-        void double_helper();
+        void double_helper(); //helper for doubling density
         vector<vector<float>> to_polar(vector<vector<float>>); //converts cartesian points to polar
         vector<vector<float>> to_cartesian(vector<vector<float>>); //converts cartesian points to polar
 };
