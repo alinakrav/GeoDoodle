@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <math.h>
+#include <numeric>
 #include "ImageGraph.h"
 
 using namespace std;
@@ -91,7 +92,25 @@ void ImageGraph::set_radius(float r){
     cartesian_points = to_cartesian(polar_points);
 }
 
-void ImageGraph::place_on_map(vector<double> loc, float radius){
+void ImageGraph::double_helper(){
+    size_t i = 0;
+    while (i<gps_points.size()-1) {
+        double mid_x = (gps_points[i][0] + gps_points[i+1][0])/2;
+        double mid_y = (gps_points[i][1] + gps_points[i+1][1])/2;
+        vector<double> mid = {mid_x, mid_y};
+        gps_points.insert(gps_points.begin()+i+1, mid);
+        i += 2;
+    }
+}
+
+void ImageGraph::double_density(size_t times){
+    while (times>0){
+        double_helper();
+        times--;
+    }
+}
+
+void ImageGraph::place_on_map(vector<double> loc){
     location = loc;
     vector<vector<double>> gps(n, vector<double>(2,0));
 

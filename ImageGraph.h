@@ -10,7 +10,7 @@ class ImageGraph {
     public:
         ImageGraph(vector<vector<float>>); //loads points into cartesian and then polar
 
-        void place_on_map(vector<double>, float); //adjusts image to latitude longitude values
+        void place_on_map(vector<double>); //adjusts image to latitude longitude values
 
         //accessors
         vector<vector<float>> get_cartesian();
@@ -19,6 +19,7 @@ class ImageGraph {
 
         string path(); //puts values into snap to roads format
         void set_radius(float); //scales polar coordinates to achieve desired max radius
+        void double_density(size_t); // interpolates extra points between lines
 
     private:
         //point systems
@@ -33,6 +34,7 @@ class ImageGraph {
 
         //init helpers
         void recenter(); //finds centroid of input points and sets it to origin
+        void double_helper();
         vector<vector<float>> to_polar(vector<vector<float>>); //converts cartesian points to polar
         vector<vector<float>> to_cartesian(vector<vector<float>>); //converts cartesian points to polar
 };
