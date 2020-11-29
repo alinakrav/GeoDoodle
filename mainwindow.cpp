@@ -119,6 +119,7 @@ void MainWindow::on_cartoon5_clicked()
 
 void MainWindow::on_stackedWidget_currentChanged(int arg1) {}
 
+
 void MainWindow::on_restartButton_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(0);

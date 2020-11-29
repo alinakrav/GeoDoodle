@@ -33,7 +33,7 @@
      <string notr="true">background-color:rgb(189, 226, 176)</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="welcome">
      <property name="styleSheet">
@@ -63,7 +63,7 @@ color: rgb(5, 116, 186)</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>290</y>
+        <y>270</y>
         <width>1111</width>
         <height>111</height>
        </rect>
