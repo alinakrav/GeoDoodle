@@ -37,6 +37,6 @@ private:
     double longitude;
     QString typeOfRequest;
     std::vector<std::vector<float>> shape;
-    QVector<struct cartesianCoordinate> snappedPoints;  
+    QVector<struct cartesianCoordinate> snappedPoints;
 };
 #endif // HTTP_H

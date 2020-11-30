@@ -16,6 +16,8 @@ struct cartesianCoordinate
 };
 cartesianCoordinate input [3] = {{"44.234025","-76.502939"},{"44.222802","-76.490321"},{"44.221193","-76.512489"}};
 
+
+
 // shape will be passed to ImageGraph class, typeOfRequest specifies what url to construct and call, ui is to modify output asynchronously
 Http::Http(QString typeOfRequest_, std::vector<std::vector<float>> shape_, Ui::MainWindow ui_) : ui(ui_), typeOfRequest(typeOfRequest_), shape(shape_) {    
     QString url;
