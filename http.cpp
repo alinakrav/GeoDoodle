@@ -131,9 +131,6 @@ void Http::graphShape() {
     graph.place_on_map({latitude, longitude});
     graph.double_density(2);
     QString s = QString::fromStdString(graph.path());
-    QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
-    QString path = "?path=" + s;
-    QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
     displayURL(s);
 }
 
