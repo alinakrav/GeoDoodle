@@ -39,6 +39,7 @@ private:
 //    vector<double> toronto = {43.684921, -79.477013};
     vector<double> toronto = {43.686988, -79.440325};
 
+    // predefined shapes
     vector<vector<float>> pentagon = {{0,2},{1,0},{3,0},{4,2},{2,3}, {0,2}};
     vector<vector<float>> triangle {{1,1},{-1,1},{0,-1}, {1,1}};
     vector<vector<float>> square {{0,0},{0,1},{1,1},{1,0},{0,0}};

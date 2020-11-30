@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+
 using namespace std;
 
 class ImageGraph {
@@ -37,4 +38,5 @@ class ImageGraph {
         void double_helper(); //helper for doubling density
         vector<vector<float>> to_polar(vector<vector<float>>); //converts cartesian points to polar
         vector<vector<float>> to_cartesian(vector<vector<float>>); //converts cartesian points to polar
+
 };

@@ -1,4 +1,5 @@
 #include "http.h"
+#include "ImageGraph.h"
 
 // Data used for API calls
 const QString MAPS_KEY = "AIzaSyBq5Lv-ZfLXrNmcDt-fN3koYi-vcV4vU4Q";
@@ -14,34 +15,43 @@ struct cartesianCoordinate
     QString lon;
 };
 
-Http::Http(Http::urls urls, Ui::MainWindow ui_) : ui(ui_) {
+// shape will be passed to ImageGraph class, typeOfRequest specifies what url to construct and call, ui is to modify output asynchronously
+Http::Http(QString typeOfRequest_, std::vector<std::vector<float>> shape_, Ui::MainWindow ui_) : ui(ui_), typeOfRequest(typeOfRequest_), shape(shape_) {
+    QString url;
+    if (typeOfRequest == "snapRoads") {
+        QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
+//        QString path = "?path=" + "";
+//        QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
+//        url = queryURL;
+    }
+    else if (typeOfRequest == "My Location")
+        url = userLocationUrl;
+    else
+        // city selected
+        url = locationUrlFor + typeOfRequest;
 
-    QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
-    QString path = "?path=" + urls.coords;
-//    qDebug() << urls.coords;
+    sendRequest(url);
 
-    QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
-
-    displayURL(urls.coords);
-//    sendRequest(queryURL, "snapRoads");
-
-//    sendRequest(urls.userLocation, "userLocation");
-//    sendRequest(urls.searchLocation, "searchLocation");
 }
 
-void Http::sendRequest(QString url, QString type) {
+void Http::sendRequest(QString url) {
     // get response
     QNetworkAccessManager *manager = new QNetworkAccessManager();
-    if (type == "userLocation")
-        connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(getUserLocationResponse(QNetworkReply *)));
-    else if (type == "searchLocation")
-        connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(getSearchLocationResponse(QNetworkReply *)));
-    else if (type == "snapRoads")
-        connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(getSnapRoadsResponse(QNetworkReply *)));
+    connect(manager, SIGNAL(finished(QNetworkReply *)), this, SLOT(getResponse(QNetworkReply *)));
     QNetworkReply *reply = manager->get(QNetworkRequest(QUrl(url)));
     reply->waitForReadyRead(3000);
 }
-void Http::getSnapRoadsResponse(QNetworkReply* reply) {
+
+void Http::getResponse(QNetworkReply* reply) {
+    if (typeOfRequest == "snapRoads")
+        parseSnapRoadsResponse(reply);
+    else if (typeOfRequest == "My Location")
+        parseUserLocationResponse(reply);
+    else
+        parseSearchLocationResponse(reply);
+}
+
+void Http::parseSnapRoadsResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
     QJsonObject jsonObj = jsonResponse.object();
@@ -58,17 +68,6 @@ void Http::getSnapRoadsResponse(QNetworkReply* reply) {
     createRouteURL();
 }
 
-void Http::displayURL(QString s) {
-    QString routeURL = "https://www.google.ca/maps/dir/" + s + "/data=!4m2!4m1!3e2";
-    ui.output_url->clear();
-    ui.output_url->appendPlainText(routeURL);
-
-    QWebEngineView *view = new QWebEngineView();
-    view->resize(QApplication::desktop()->screenGeometry().width()/3*2, QApplication::desktop()->screenGeometry().height());
-    view->load(QUrl(routeURL));
-    view->show();
-}
-
 QString Http::createRouteURL() {
     QString routeURL = "https://www.google.ca/maps/dir/";
     QString lat, lon;
@@ -82,37 +81,51 @@ QString Http::createRouteURL() {
     return routeURL;
 }
 
-void Http::getUserLocationResponse(QNetworkReply* reply) {
-    QString strReply = (QString)reply->readAll();
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-    jsonObj = jsonResponse.object();
-    printUserLocation();
+void Http::displayURL(QString s) {
+
+    QString routeURL = "https://www.google.ca/maps/dir/" + s + "/data=!4m2!4m1!3e2";
+    ui.output_url->clear();
+    ui.output_url->appendPlainText(routeURL);
+
+    // open maps link in new window
+    QWebEngineView *view = new QWebEngineView();
+    view->resize(QApplication::desktop()->screenGeometry().width()/3*2, QApplication::desktop()->screenGeometry().height());
+    view->load(QUrl(routeURL));
+    view->show();
 }
 
-void Http::getSearchLocationResponse(QNetworkReply* reply) {
+void Http::parseUserLocationResponse(QNetworkReply* reply) {
     QString strReply = (QString)reply->readAll();
     QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
-    jsonObj = jsonResponse.object();
-    printSearchLocation();
-}
-void Http::printUserLocation() {
+    QJsonObject jsonObj = jsonResponse.object();
     // parse response
-    QString latitude = QString::number(jsonObj["latitude"].toDouble(), 'g', coordPrecision);
-    QString longitude = QString::number(jsonObj["longitude"].toDouble(), 'g', coordPrecision);
-//    ui.testArea->appendPlainText("User location...");
-//    ui.testArea->appendPlainText("Latitude: " + latitude);
-//    ui.testArea->appendPlainText("Longitude: " + longitude);
+    latitude = jsonObj["latitude"].toDouble();
+    longitude = jsonObj["longitude"].toDouble();
+
+    graphShape();
 }
 
-void Http::printSearchLocation() {
+void Http::parseSearchLocationResponse(QNetworkReply* reply) {
+    QString strReply = (QString)reply->readAll();
+    QJsonDocument jsonResponse = QJsonDocument::fromJson(strReply.toUtf8());
+    QJsonObject jsonObj = jsonResponse.object();
+    // parse response
     QJsonObject location = jsonObj["candidates"].toArray().at(0)["geometry"].toObject()["location"].toObject();
-    QString latitude = QString::number(location["lat"].toDouble(), 'g', coordPrecision);
-    QString longitude = QString::number(location["lng"].toDouble(), 'g', coordPrecision);
-//    ui.testArea->appendPlainText("Searched location...");
-//    ui.testArea->appendPlainText("Latitude: " + latitude);
-//    ui.testArea->appendPlainText("Longitude: " + longitude);
+    latitude = location["lat"].toDouble();
+    longitude = location["lng"].toDouble();
+
+    graphShape();
 }
-
-
+void Http::graphShape() {
+    ImageGraph graph(shape);
+    graph.set_radius(ui.spinBox->value());
+    graph.place_on_map({latitude, longitude});
+    graph.double_density(2);
+    QString s = QString::fromStdString(graph.path());
+    QString baseURL = "https://roads.googleapis.com/v1/snapToRoads";
+    QString path = "?path=" + s;
+    QString queryURL = baseURL + path + "&interpolate=true&key=" + MAPS_KEY;
+    displayURL(s);
+}
 
 Http::~Http() {}

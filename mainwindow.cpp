@@ -9,8 +9,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->comboBox->addItem("Please Select");
-    ui->comboBox->addItem("Downtown Toronto");
+    ui->comboBox->addItem("Toronto");
+    ui->comboBox->addItem("Kingston");
+    ui->comboBox->addItem("Montreal");
+    ui->comboBox->addItem("Ottawa");
+    ui->comboBox->addItem("Waterloo");
+    ui->comboBox->addItem("Vancouver");
+    ui->comboBox->addItem("Tokyo");
+    ui->comboBox->addItem("Munich");
+    ui->comboBox->addItem("My Location");
 }
 
 MainWindow::~MainWindow()
@@ -39,48 +46,21 @@ void MainWindow::on_cartoon1_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
     //irregular pentagon
-    ImageGraph graph_A(pentagon);
-    graph_A.set_radius(radius);
-    graph_A.place_on_map(toronto);
-    graph_A.double_density(2);
-    s = QString::fromStdString(graph_A.path());
-    Http::urls urls;
-    urls.searchLocation = locationUrlFor + "Toronto";
-    urls.userLocation = userLocationUrl;
-    urls.coords = s;
-    new Http(urls, *ui);
+    new Http(ui->comboBox->currentText(), pentagon, *ui);
     ui -> stackedWidget -> setCurrentIndex(5);
 }
 void MainWindow::on_cartoon2_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
     //triangle
-    ImageGraph graph_B(triangle);
-    graph_B.set_radius(radius);
-    graph_B.place_on_map(toronto);
-    graph_B.double_density(2);
-    s = QString::fromStdString(graph_B.path());
-    Http::urls urls;
-    urls.searchLocation = locationUrlFor + "Toronto";
-    urls.userLocation = userLocationUrl;
-    urls.coords = s;
-    new Http(urls, *ui);
+    new Http(ui->comboBox->currentText(), triangle, *ui);
     ui -> stackedWidget -> setCurrentIndex(5);
 }
 void MainWindow::on_cartoon3_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
     // square
-    ImageGraph graph_C(square);
-    graph_C.set_radius(radius);
-    graph_C.place_on_map(toronto);
-    graph_C.double_density(2);
-    s = QString::fromStdString(graph_C.path());
-    Http::urls urls;
-    urls.searchLocation = locationUrlFor + "Toronto";
-    urls.userLocation = userLocationUrl;
-    urls.coords = s;
-    new Http(urls, *ui);
+    new Http(ui->comboBox->currentText(), square, *ui);
     ui -> stackedWidget -> setCurrentIndex(5);
 
 }
@@ -88,37 +68,22 @@ void MainWindow::on_cartoon4_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
     //irregular hexagon
-    ImageGraph graph_D(hexagon);
-    graph_D.set_radius(radius);
-    graph_D.place_on_map(toronto);
-    graph_D.double_density(2);
-    s = QString::fromStdString(graph_D.path());
-    Http::urls urls;
-    urls.searchLocation = locationUrlFor + "Toronto";
-    urls.userLocation = userLocationUrl;
-    urls.coords = s;
-    new Http(urls, *ui);
+    new Http(ui->comboBox->currentText(), hexagon, *ui);
     ui -> stackedWidget -> setCurrentIndex(5);
 }
 void MainWindow::on_cartoon5_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(4);
     //regular rhombus
-    ImageGraph graph_E(rhombus);
-    graph_E.set_radius(radius);
-    graph_E.place_on_map(toronto);
-    graph_E.double_density(2);
-    s = QString::fromStdString(graph_E.path());
-    Http::urls urls;
-    urls.searchLocation = locationUrlFor + "Toronto";
-    urls.userLocation = userLocationUrl;
-    urls.coords = s;
-    new Http(urls, *ui);
+    new Http(ui->comboBox->currentText(), rhombus, *ui);
     ui -> stackedWidget -> setCurrentIndex(5);
 }
 
 void MainWindow::on_restartButton_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(0);
-    (QApplication::topLevelWidgets())[0]->close();
+    if (this->isTopLevel())
+        (QApplication::allWindows())[0]->close();
+    else
+        (QApplication::allWidgets())[1]->close();
 }

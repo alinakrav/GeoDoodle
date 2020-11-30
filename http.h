@@ -18,28 +18,25 @@ class Http : public QObject
     Q_OBJECT
 
 public:
-    // contains all urls passed from mainwindow
-    struct urls {
-        QString searchLocation;
-        QString userLocation;
-        QString coords;
-
-    };
-    Http(struct Http::urls, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
+    Http(QString, std::vector<std::vector<float>>, Ui::MainWindow); // constructor, sends a url to request, keyword that identifies the content, and ui to print content to
     ~Http(); // destructor
-    void printUserLocation(); // parses and prints data from response
-    void printSearchLocation();
+    void graphShape();
     QString createRouteURL();
     void displayURL(QString);
 private slots:
-    void getUserLocationResponse(QNetworkReply *); // gets and prepares response
-    void getSearchLocationResponse(QNetworkReply *);
-    void getSnapRoadsResponse(QNetworkReply *);
-
+    void getResponse(QNetworkReply *); // gets and prepares response
 private:
-    void sendRequest(QString, QString);
+    void sendRequest(QString);
+    //
+    void parseUserLocationResponse(QNetworkReply *); // gets and prepares response
+    void parseSearchLocationResponse(QNetworkReply *);
+    void parseSnapRoadsResponse(QNetworkReply *);
+
     Ui::MainWindow ui; // ui will be modified within aync process
-    QJsonObject jsonObj; // json object saved from response
-    QVector<struct cartesianCoordinate> snappedPoints;
+    double latitude; // json object saved from response
+    double longitude;
+    QString typeOfRequest;
+    std::vector<std::vector<float>> shape;
+    QVector<struct cartesianCoordinate> snappedPoints;  
 };
 #endif // HTTP_H
