@@ -117,9 +117,8 @@ void MainWindow::on_cartoon5_clicked()
     ui -> stackedWidget -> setCurrentIndex(5);
 }
 
-void MainWindow::on_stackedWidget_currentChanged(int arg1) {}
-
 void MainWindow::on_restartButton_clicked()
 {
     ui -> stackedWidget -> setCurrentIndex(0);
+    (QApplication::topLevelWidgets())[0]->close();
 }

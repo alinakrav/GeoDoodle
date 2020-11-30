@@ -28,10 +28,8 @@ private slots:
     void on_cartoon4_clicked();
     void on_cartoon5_clicked();
 
-    void on_stackedWidget_currentChanged(int arg1);
-
     void on_pushButton_3_clicked();
-
+    void on_restartButton_clicked();
 private:
     Ui::MainWindow *ui;
     int radius;
