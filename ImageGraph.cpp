@@ -10,6 +10,9 @@ using namespace std;
 #define LATKM 110.567
 #define LONGCOEFF 111.320
 #define R_EARTH 6378.1370000
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 /*
 #include <iostream>
